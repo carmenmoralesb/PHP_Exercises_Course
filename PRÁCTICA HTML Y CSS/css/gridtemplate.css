@@ -1,0 +1,27 @@
+.principal {
+    display: grid;
+    height: 100vh;
+    grid-gap: 5px;
+
+    /* Le indicamos que ocupe el 100 de nuestro viewport height, en otras palabras: 
+    la altura será de todo lo que puedes aprovechar de mi pantalla height: 100vh; 
+    y le damos un espaciado de 5px con grid-gap: 5px;.
+    */
+    grid-template-columns: 1fr 2fr;
+    /* le ponemos 2 columnas y 3 filas
+    */
+    grid-template-rows: 1fr 3fr 1fr;
+    /* le ponemos tambien tamaño a las filas, en este caso tenemos 3 filas ... */
+}
+
+.cabecera,
+.pie {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 500px) {
+    .principal {
+        display: block;
+        /* grid-column: left-colunm /  span 2; */
+    }
+}

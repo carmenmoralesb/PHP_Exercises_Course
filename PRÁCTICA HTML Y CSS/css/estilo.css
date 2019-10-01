@@ -1,0 +1,78 @@
+/* NO GRILLA SOLO ESTILO PRINCIPAL*/
+
+.cabecera {
+    display: flex;
+    padding: 2.3em 0;
+    font-size: 30px;
+    font-family: 'Inconsolata', bold;
+}
+
+.logo img {
+    display: block;
+}
+
+.cabecera ul li {
+    display: inline;
+    padding: 0 1.4em 0 0;
+    font-size: 0.9em;
+    font-family: 'Inconsolata', monospace;
+}
+
+.cabecera ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+
+nav li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.contenido h1 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 50px;
+}
+
+.contenido article p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+}
+
+.contenido img {
+    width: 800px;
+    margin: 20px 10px 10px;
+}
+
+.contenido a {
+    font-family: 'Inconsolata';
+    font-size: 20px;
+    color: green;
+}
+
+.pie {
+    margin-top: 40px;
+    background-color: black;
+    font-family: 'Inconsolata', monospace;
+}
+
+.pie>* {
+    color: white;
+    margin-left: 20px;
+}
+
+.barraizq {
+    font-family: 'Inconsolata', monospace;
+}
+
+form {
+    border: 1px solid #222;
+    border-radius: 3px;
+    width: 80%;
+    padding: 50px;
+    font-family: 'Inconsolata';
+}
+
+form>* {
+    margin: 0px 0px 20px 0px;
+}

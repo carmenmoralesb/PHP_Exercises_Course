@@ -1,37 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-  width: 100%;
-  padding: 0;
+  margin: 0;
+  font-family: arial, tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  direction: ltr;
+  background: white;
 }
 
-h2 {
-  font-family: 'Qwigley', cursive;
-  font-size: 7em;
-  color: #f3f4f6;
-  text-shadow: 1px 3px black;
+form {
+  margin: 10% auto 0 auto;
+  padding: 30px;
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+  background: white;
+  border-radius: 10px;
 }
-input, textarea {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+
+form label {
+  font-size: 14px;
+  color: darkgray;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+}
+
+h4 {
+  margin: 0 auto;
+  width: 200px;
+  font-family: "Lily Script One", cursive;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  color: lightgray;
+}
+
+form label,
+form input {
+  float: left;
+  clear: both;
+}
+
+form input {
+  margin: 15px 0;
+  padding: 15px 10px;
+  font-family: "Open Sans", sans-serif;
   width: 100%;
-  margin: 8px 0;
-  text-indent: 1em;
-  padding: 10px 0;
-  border-radius: 3px;
-  border: 1px solid lightgray;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border-color: cornflowerblue;
 }
 
 input[type="submit"] {
-  background-color: #4d90fe;
+  padding: 15px 50px;
+  width: auto;
+  background: #1abc9c;
+  border: none;
   color: white;
-  border: 1px solid #3079ed;
+  cursor: pointer;
+  display: inline-block;
 }
 
 input[type="submit"]:hover {
-  background-color: #4d9aff;
-  color: white;
+  opacity: 0.8;
 }
 
-p {
-  margin-top: 10px;
-  font-size: 0.75em;
+input[type="submit"]:active {
+  opacity: 0.4;
 }

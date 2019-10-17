@@ -1,76 +1,53 @@
-@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 
-body {
-  margin: 0;
-  font-family: arial, tahoma, sans-serif;
-  font-size: 12px;
-  font-weight: normal;
-  direction: ltr;
-  background: white;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  height: 100%;
 }
 
-form {
-  margin: 10% auto 0 auto;
-  width: 400px;
-  height: auto;
-  overflow: hidden;
-  background: white;
-  border-radius: 10px;
-  border-color: #EC008C;
+body{
+  font-family: 'Inconsolata', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  height: 100%;
+  align-items:center;
+  margin-top: 60px;
 }
 
-form label {
-  font-size: 14px;
-  color: darkgray;
-  cursor: pointer;
-  font-family: "Open Sans", sans-serif;
+form{
+  width: 350px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  background: #ffffff;
 }
 
-h4 {
-  width: 400px;
-  font-family: "Lily Script One", cursive;
-  font-size: 40px;
-  color: lightgray;
+input{
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  padding: 12px;
+  width: 100%;
 }
 
-form label,
-form input {
-  float: left;
-  clear: both;
-  color: black;
+input[type='submit']
+{
+  background: #69d2e7;
+  border: 1px solid #ddd;
+  color: #ffffff;
+  padding: 20px;
+  width: 100%;
+  text-transform: uppercase;
+
+}
+button:hover{
+  background: #69c8e7;
 }
 
-form input {
-  margin: 15px 0;
-  padding: 15px 10px;
-  font-family: "Open Sans", sans-serif;
-  width: 80%;
-  outline: none;
-  border: 1px solid #bbb;
-  border-radius: 20px;
-  display: inline-block;
-}
-
-form input[type="text"]:focus,
-form input[type="password"]:focus {
-  border-color: cornflowerblue;
-}
-
-input[type="submit"] {
-  padding: 15px 50px;
-  width: auto;
-  background: #EC008C;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-}
-
-input[type="submit"]:hover {
-  opacity: 0.8;
-}
-
-input[type="submit"]:active {
-  opacity: 0.4;
+header{
+  text-align: center;
+  margin-bottom : 2rem;
 }

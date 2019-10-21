@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Inconsolata&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +9,7 @@ html {
 
 .naveg {
   overflow: hidden;
-  background-color: #222222;
+  background-color: #957DAD;
   position: fixed;
   top: 0;
   width: 100%;
@@ -59,7 +57,7 @@ input {
 }
 
 input[type="submit"] {
-  background: #E63844;
+  background: #D291BC;
   border: 1px solid #ddd;
   color: #ffffff;
   padding: 20px;
@@ -67,7 +65,7 @@ input[type="submit"] {
   text-transform: uppercase;
 }
 button:hover {
-  background: #69c8e7;
+  background: #FEC8D8;
 }
 
 header {

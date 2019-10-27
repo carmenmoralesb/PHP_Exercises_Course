@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+* {
+    box-sizing: border-box;
+ }
+ 
+body {
+    font-family: 'Fira Sans', sans-serif;
+    margin: 0;
+    width: 100%;
+ }
+
+
+#salida {
+  margin-left: 40px;
+} 
+
+a {
+   color: white;
+   font-weight: 300;
+   letter-spacing: 2px;
+   text-decoration: none;
+   padding: 20px 5px;
+   display: inline-block;
+   width: 100%;
+   text-align: center;
+}
+
+a:hover {
+   background: #FEC8D8;
+}
+
+header {
+   margin: 0 auto;
+   background: #D291BC;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    margin-left: 20px;
+    font-size: 30px;
+}
+
+.naveg ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+}
+
+.naveg li {
+   flex: 3;    
+}
+
+.naveg .user {
+   flex: 1;
+}
+
+table {
+   font-family: verdana, arial, sans-serif;
+   font-size: 11px;
+   color: #333333;
+   border-width: 1px;
+   border-color: #3A3A3A;
+     border-collapse: collapse;
+     width: 100%;
+}
+
+table th {
+   border-width: 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #517994;
+   background-color: #B2CFD8;
+}
+
+table tr:hover td {
+   background-color: #DFEBF1;
+}
+
+table td {
+   border-width: 1px;
+   padding: 8px;
+   border-style: solid;
+   border-color: #517994;
+   background-color: #ffffff;
+}
+
+
+@media all and (max-width: 1000px) {
+   .naveg ul {
+      flex-wrap: wrap;
+   }
+   
+   .naveg li {
+      flex: 1 1 50%;
+   }
+
+   .naveg .user {
+      flex: 1 1 33.33%;
+   }
+}
+
+@media all and (max-width: 480px) {
+   .naveg li {
+      flex-basis: 100%;
+   }
+
+   .naveg .user {
+      flex-basis: 50%;
+   }
+}
+
+form {
+  width: 350px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 50px;
+  background: #ffffff;
+}
+
+input {
+  background: #fafafa;
+  border: 1px solid #eeeeee;
+  padding: 12px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  background: #D291BC;
+  border: 1px solid #ddd;
+  color: #ffffff;
+  padding: 20px;
+  width: 100%;
+  text-transform: uppercase;
+}
+button:hover {
+  background: #FEC8D8;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}

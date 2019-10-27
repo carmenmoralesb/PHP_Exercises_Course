@@ -64,19 +64,20 @@ function decaBin ($valor) {
 }
 
 function binaDec ($binario) {
+    $binario = strval($binario);
     $dec = 0;
     #var_dump($dec);
-    $base = 1; 
+    $valor = 1; 
     $contador = strlen($binario);
 
     for ($i=$contador-1; $i>=0;$i--) 
     { 
         if ($binario[$i]=='1'){  
-            $dec+=$base; 
+            $dec+=$valor; 
         }
-        $base = $base*2; 
+        $valor = $valor*2; 
     } 
-    print($dec);
+    return $dec;
 }
   
 ?>

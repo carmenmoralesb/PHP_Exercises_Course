@@ -17,7 +17,8 @@ if (isset($_POST['oportunidades']) && ($_POST['numeroIntroducido'])){
 
 else {
     $oportunidades = 4;
-    $numeroIntroducido=0;}
+    $numeroIntroducido=0;
+}
     
     if ($numeroIntroducido == $combiSecreta ) {
         echo "<h1>Enhorabuena, has abierto la caja.</h1>
@@ -33,13 +34,13 @@ else {
     } 
     else {
         $oportunidades--;
-
+    }
     if ($combiSecreta  > $numeroIntroducido){
         echo "<h1>La combinación es mucho menor.</h1>";
     }else {
         echo "<h1>La combinación es mucho mayor</h1>";
     }
-    require_once 'formadivina.php';
+    require_once '01.php';
 }
 ?>
 </body>

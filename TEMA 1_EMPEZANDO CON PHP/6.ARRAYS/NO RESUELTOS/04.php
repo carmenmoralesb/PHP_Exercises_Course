@@ -31,22 +31,20 @@ $juego["Deporte"] = ['FIFA','PES','MOTO GP'];
 
 $claves = array_keys($juego);
 var_dump($array);
-
+$pos = 1;
+echo "<table>";
 echo "<tr>";
-for ($i=0;$i<count($claves);$i++) {
-    echo "<th>$claves[$i]</th>";
+foreach ($juego as $array) {
+    echo "<th>$array</th>";
+foreach ($array as $valor) {
+    if ($pos==1) {
+    #sacar las celdas por posicion
+    echo "<td>$valor</td>";
 }
-echo "</tr>";
-
-
-foreach ($i=0;$i<){
-    echo "<tr>";
-    foreach ($genero as $juegounidad) {
-        echo "<td>$juegounidad</td>";
-    }
-    echo "<tr>";
 }
-
+echo "<tr>";
+}
+echo "</table>";
 ?>
 </table>
 </div>

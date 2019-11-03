@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-areas:
+    " header header"
+    " nav nav "
+    " main main"
+    " pie pie";
+  min-height: 100vh;
+}
+
+.cabecera {
+  background-color: #74d4ef;
+  grid-area: header;
+  padding: 20px;
+  font-family: 'Lobster';
+}
+
+.contenido {
+  grid-area: main;
+  background-color: white;
+  padding: 160px;
+}
+
+
+.navegacion {
+  background-color: #262626;
+  grid-area: nav;
+  color: white;
+  padding: 20px;
+}
+
+/* NAVEGACION */
+
+.navegacion a {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 20px 5px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+ }
+ 
+.navegacion a:hover {
+    background: #FEC8D8;
+ }
+ 
+ 
+ .logo {
+     font-family: 'Lobster', cursive;
+     margin-left: 20px;
+     font-size: 40px;
+ }
+ 
+ .navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+ }
+ 
+ .navegacion li {
+    flex: 3;    
+ }
+ 
+ .navegacion .user {
+    flex: 1;
+ }
+
+.pie {
+  grid-area: pie;
+  padding: 20px;
+  background-color: #3a3a3a;
+  color: white;
+}
+
+/* TABLA */
+
+table {
+  font-family: verdana, arial, sans-serif;
+  font-size: 11px;
+  color: #333333;
+  border-width: 1px;
+  border-color: #3a3a3a;
+  width: 100%;
+  height: 600px;
+}
+
+table th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #3a3a3a;
+  background-color: #3a3a3a;
+  color: white;
+}
+
+table tr:hover td {
+  background-color: #dfebf1;
+}
+
+table td {
+  border-width: 1px;
+  padding: 8px;
+  color: black;
+  border-style: solid;
+  border-color: #3a3a3a;
+  background-color: #ffffff;
+}
+
+form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}

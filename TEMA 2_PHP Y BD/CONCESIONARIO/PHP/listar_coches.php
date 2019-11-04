@@ -2,23 +2,23 @@
 <html lang="es">
 <head>
     <meta charset='UTF-8'>
-    <link href="estilo.css" type="text/css" rel="stylesheet">
+    <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
 <div class='contenedor'>
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
+<?php include 'INCLUDES/header.php';?>
+<?php include 'INCLUDES/nav.php';?>
 <body>
-<?php include 'header.php';?>
+<?php include 'INCLUDES/header.php';?>
 <main class="contenido">
 <?php 
-require_once 'conecta.php';
+require_once 'INCLUDES/conecta.php';
 $sql= 'select * from coche;';
 $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0){
 ?>
 <table>
-<tbody>
-<tr><th>Coches del concesionario</th>
+<tr>
+<th>ID</th>
 <th>Marca</th>
 <th>Modelo</th>
 <th>Precio</th>
@@ -40,7 +40,7 @@ mysqli_close($conexion);
 </tbody>
 </table>
 </main>
-<?php include 'footer.php';?>
+<?php include 'INCLUDES/footer.php';?>
 </div>
 </body>
 </html>

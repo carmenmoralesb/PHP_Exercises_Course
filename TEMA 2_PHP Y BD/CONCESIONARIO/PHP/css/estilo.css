@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: auto auto 1fr auto auto;
+  grid-template-areas:
+    " header header"
+    " nav nav "
+    " main main"
+    " pie pie";
+  min-height: 100vh;
+}
+
+.cabecera {
+  background-color: #74d4ef;
+  grid-area: header;
+  padding: 20px;
+  font-family: 'Lobster';
+}
+
+.contenido {
+  grid-area: main;
+  background-color: white;
+  padding: 160px;
+}
+
+
+.navegacion {
+  background-color: #262626;
+  grid-area: nav;
+  color: white;
+  padding: 20px;
+}
+
+/* NAVEGACION */
+
+.navegacion a {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 20px 5px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+ }
+ 
+.navegacion a:hover {
+    background: #FEC8D8;
+ }
+ 
+ 
+ .logo {
+     font-family: 'Lobster', cursive;
+     margin-left: 20px;
+     font-size: 40px;
+ }
+ 
+ .navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+ }
+ 
+ .navegacion li {
+    flex: 3;    
+ }
+ 
+ .navegacion .user {
+    flex: 1;
+ }
+
+.pie {
+  grid-area: pie;
+  padding: 20px;
+  background-color: #3a3a3a;
+  color: white;
+}
+
+/* TABLA */
+
+table{
+  background: #fff;
+}
+table,thead,tbody,tfoot,tr, td,th{
+ text-align: center;
+ margin: auto;
+ border:1px solid #dedede;
+ padding: 1rem;
+ width: 100%;
+}
+
+form{
+  display: grid;
+  grid-template-columns: [labels] auto [controls] 1fr;
+  grid-auto-flow: row;
+  grid-gap: .8em;
+  background: #eee;
+  padding: 1.2em;
+}
+
+form > label  {
+  grid-column: labels;
+  grid-row: auto;
+}
+
+form > input,
+form > textarea,
+form > button {
+  grid-column: controls;
+  grid-row: auto;
+  border: none;
+  padding: 1em;
+}

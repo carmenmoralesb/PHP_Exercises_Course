@@ -2,24 +2,23 @@
 <html lang="es">
 <head>
     <meta charset='UTF-8'>
-    <link href="estilo.css" type="text/css" rel="stylesheet">
+    <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
-<div class='contenedor'>
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
 <body>
-<?php include 'header.php';?>
+<div class='INCLUDES/contenedor'>
+<?php include 'INCLUDES/header.php';?>
+<?php include 'INCLUDES/nav.php';?>
 <main class="contenido">
-<?php require_once 'conecta.php';?>
+<?php require_once 'INCLUDES/conecta.php';?>
 
 <form action="insertar.php" method="post"> 
-    <label>Modelo</label>
+    <label for="modelo">Modelo</label>
     <input type="text" name="modelo">
-    <label>Marca</label>
+    <label for="marca">Marca</label>
     <input type="text" name="marca">
-    <label>Precio</label>
+    <label for="precio">Precio</label>
     <input type="number" name="precio">
-    <label>Stock</label>
+    <label for="stock">Stock</label>
     <input type="number" name="stock">
     <input type="submit" value=" Enviar " name="submit"/>
 </form>
@@ -37,7 +36,7 @@ if(isset($_POST["submit"])){
 }
 ?>
 </main>
-<?php include 'footer.php';?>
+<?php include 'INCLUDES/footer.php';?>
 </div>
 </body>
 </html>

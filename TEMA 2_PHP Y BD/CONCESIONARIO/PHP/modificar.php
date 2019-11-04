@@ -2,16 +2,16 @@
 <html lang="es">
 <head>
     <meta charset='UTF-8'>
-    <link href="estilo.css" type="text/css" rel="stylesheet">
+    <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
 <div class='contenedor'>
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
+<?php include 'INCLUDES/header.php';?>
+<?php include 'INCLUDES/nav.php';?>
 <body>
-<?php include 'header.php';?>
+<?php include 'INCLUDES/header.php';?>
 <main class="contenido">
 
-<?php require_once 'conecta.php';?>
+<?php require_once 'INCLUDES/conecta.php';?>
 
 <form action="modificar.php" method="post"> 
     <label>Identificador</label>
@@ -27,7 +27,6 @@ if(isset($_POST["submit"])){
     if (mysqli_num_rows($resultado)>0){
         ?>
 <table>
-<tbody>
 <tr><th>Coches del concesionario</th>
 <th>Marca</th>
 <th>Modelo</th>
@@ -41,6 +40,7 @@ while ($fila= mysqli_fetch_assoc($resultado) ){?>
 <td><?= $fila['modelo']?></td>
 <td><?= $fila['precio']?></td>
 <td><?= $fila['stock']?></td></tr>
+</table>
 <?php
 }
 }else{
@@ -76,7 +76,7 @@ if(isset($_POST["submit2"])){
 }
 ?>
 </main>
-<?php include 'footer.php';?>
+<?php include 'INCLUDES/footer.php';?>
 </div>
 </body>
 </html>

@@ -2,15 +2,14 @@
 <html lang="es">
 <head>
     <meta charset='UTF-8'>
-    <link href="estilo.css" type="text/css" rel="stylesheet">
+    <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
-<div class='contenedor'>
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
 <body>
-<?php include 'header.php';?>
+<div class='contenedor'>
+<?php include 'INCLUDES/header.php';?>
+<?php include 'INCLUDES/nav.php';?>
 <main class="contenido">
-<?php require_once 'conecta.php';?>
+<?php require_once 'INCLUDES/conecta.php';?>
 
 <form action="borrar.php" method="post"> 
     <label>Id del coche</label>
@@ -29,7 +28,7 @@ if(isset($_POST["submit"])){
 }
 ?>
 </main>
-<?php include 'footer.php';?>
+<?php include 'INCLUDES/footer.php';?>
 </div>
 </body>
 </html>

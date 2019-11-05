@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap');
 
 body {
   margin: 0;
@@ -19,104 +18,193 @@ body {
 }
 
 .cabecera {
-  background-color: #74d4ef;
   grid-area: header;
-  padding: 20px;
-  font-family: 'Lobster';
+  padding: 100px;
+  background-image: url("https://www.freewebheaders.com/wp-content/gallery/cars/toyota-gt86-red-car-on-road-website-header.jpg");    
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 1500px;
 }
 
 .contenido {
+  font-family: 'Roboto, sans-serif;
   grid-area: main;
   background-color: white;
   padding: 160px;
 }
 
-
 .navegacion {
-  background-color: #262626;
+  background-color: white;
   grid-area: nav;
-  color: white;
   padding: 20px;
 }
 
 /* NAVEGACION */
 
 .navegacion a {
-    color: white;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-decoration: none;
-    padding: 20px 5px;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
- }
- 
+  color: #48487F;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 20px 5px;
+  font-family: 'Oswald', sans-serif;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
 .navegacion a:hover {
-    background: #FEC8D8;
- }
- 
- 
- .logo {
-     font-family: 'Lobster', cursive;
-     margin-left: 20px;
-     font-size: 40px;
- }
- 
- .navegacion ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
- }
- 
- .navegacion li {
-    flex: 3;    
- }
- 
- .navegacion .user {
-    flex: 1;
- }
+  background: #48487F;
+  color: white;
+}
+
+.logo {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.navegacion ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navegacion li {
+  flex: 3;
+}
 
 .pie {
   grid-area: pie;
+  font-family: 'Roboto', sans-serif;
   padding: 20px;
-  background-color: #3a3a3a;
-  color: white;
+  background-color: white;
+  color:#48487F;
 }
 
 /* TABLA */
 
-table{
-  background: #fff;
-}
-table,thead,tbody,tfoot,tr, td,th{
- text-align: center;
- margin: auto;
- border:1px solid #dedede;
- padding: 1rem;
- width: 100%;
+.caja-tabla {
+  margin-top: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 100%;
+  margin-bottom: 30%;
 }
 
-form{
+table {
+  font-family: 'Roboto', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: 50%;
+}
+
+
+th, td {
+  text-align: left;
+  padding: 30px;
+  
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #48487F;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+
+}
+
+/* FORMULARIOS */
+
+.formulario {
+  margin-top: 20%;
+  margin-left: 45%;
+  margin-right: 45%;
+  width: 100%;
+  margin-bottom: 30%;
+  width: 50%;
+}
+
+form {
   display: grid;
   grid-template-columns: [labels] auto [controls] 1fr;
   grid-auto-flow: row;
-  grid-gap: .8em;
+  grid-gap: 0.8em;
   background: #eee;
   padding: 1.2em;
 }
 
-form > label  {
+form label {
+  font-family: 'Roboto', sans-serif;
   grid-column: labels;
   grid-row: auto;
+  padding: 10px;
+  background: grey;
+  color:white;
 }
 
 form > input,
 form > textarea,
-form > button {
+form > button form > .mensajes {
   grid-column: controls;
   grid-row: auto;
   border: none;
   padding: 1em;
+}
+
+.formulario h2 {
+  padding: 20px;
+  background: #48487F;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+}
+
+.formularioregistro {
+  margin-top: 20%;
+  margin-left: 35%;
+  margin-right: 35%;
+  width: 90%;
+  margin-bottom: 30%;
+}
+
+.formularioregistro h2 {
+  padding: 20px;
+  background: #48487F;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+}
+
+
+.sign-up {
+  float:left;
+}
+
+
+
+
+/* ALERTAS Y MENSAJES */
+
+.mensajes {
+  padding: 20px;
+  color: white;
+  opacity: 1;
+  margin-top: 30px;
+  transition: opacity 0.6s;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mensajes.error {
+  background-color: #f44336;
+}
+
+.mensajes.success {
+  background-color: #4caf50;
+}
+.mensajes.info {
+  background-color: #2196f3;
+}
+.mensajes.warning {
+  background-color: #ff9800;
 }

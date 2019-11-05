@@ -4,6 +4,7 @@
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
+
 <div class='contenedor'>
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>

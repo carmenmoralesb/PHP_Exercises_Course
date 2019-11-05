@@ -4,18 +4,21 @@
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
-<div class='contenedor'>
+
+<body>
+
+<div class="contenedor">
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>
-<body>
-<?php include 'INCLUDES/header.php';?>
-<main class="contenido">
+
 <?php 
 require_once 'INCLUDES/conecta.php';
-$sql= 'select * from coche;';
+$sql= "SELECT * FROM coche";
 $resultado= mysqli_query($conexion, $sql);
+
 if (mysqli_num_rows($resultado)>0){
 ?>
+<div class="caja-tabla">
 <table>
 <tr>
 <th>ID</th>
@@ -31,6 +34,7 @@ while ($fila= mysqli_fetch_assoc($resultado) ){?>
 <td><?= $fila['modelo']?></td>
 <td><?= $fila['precio']?></td>
 <td><?= $fila['stock']?></td></tr>
+
 <?php
 }
 }else{
@@ -39,7 +43,7 @@ mysqli_close($conexion);
 ?>
 </tbody>
 </table>
-</main>
+</div>
 <?php include 'INCLUDES/footer.php';?>
 </div>
 </body>

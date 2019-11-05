@@ -5,13 +5,13 @@
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div class='INCLUDES/contenedor'>
+<div class='contenedor'>
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>
-<main class="contenido">
 <?php require_once 'INCLUDES/conecta.php';?>
 
 <form action="insertar.php" method="post"> 
+<h2>Añadir un coche</h2>
     <label for="modelo">Modelo</label>
     <input type="text" name="modelo">
     <label for="marca">Marca</label>

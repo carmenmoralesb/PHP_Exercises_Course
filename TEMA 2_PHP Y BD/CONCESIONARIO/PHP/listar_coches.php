@@ -3,22 +3,22 @@
 <head>
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
-</head>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></head>
 
 <body>
 
-<div class="contenedor">
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>
 
 <?php 
 require_once 'INCLUDES/conecta.php';
+
 $sql= "SELECT * FROM coche";
 $resultado= mysqli_query($conexion, $sql);
 
 if (mysqli_num_rows($resultado)>0){
 ?>
-<div class="caja-tabla">
+<div class="contenido">
 <table>
 <tr>
 <th>ID</th>
@@ -26,6 +26,8 @@ if (mysqli_num_rows($resultado)>0){
 <th>Modelo</th>
 <th>Precio</th>
 <th>Stock</th>
+<th>Editar</th>
+<th>Borrar</th>
 </tr>
 <?php 
 while ($fila= mysqli_fetch_assoc($resultado) ){?>
@@ -33,7 +35,13 @@ while ($fila= mysqli_fetch_assoc($resultado) ){?>
 <td><?= $fila['marca']?></td>
 <td><?= $fila['modelo']?></td>
 <td><?= $fila['precio']?></td>
-<td><?= $fila['stock']?></td></tr>
+<td><?= $fila['stock']?></td>
+
+<td><a href="modificar_coche.php?id=<?php echo $fila['id']?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
+<td><a href="borrar_coche.php?id=<?php echo $fila['id']?>"><i class="fa fa-minus-square" aria-hidden="true"></i></i>
+
+</a></td>
+</tr>
 
 <?php
 }

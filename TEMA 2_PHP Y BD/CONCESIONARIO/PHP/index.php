@@ -6,21 +6,20 @@
 </head>
 
 <body>
-<div class="contenedor">
 <?php include 'INCLUDES/header.php';?>
 <?php require_once 'INCLUDES/conecta.php';?>
 
+<div class="contenido">
 <div class="formularioregistro">
-<h2 class="registro-header">Inicia sesión o regístrate</h2>
+<h2 align="center" class="cabeform">Iniciar sesión</h2>
 <form class="sign-up" method="post" action="index.php">
-
 <label for="correo">E-mail</label>
 <input name="correo" type="email">
 <label for="password">Contraseña</label>
 <input type="password" name="password">
 <input type="submit" value="Iniciar sesión" name="submitlogin"/>
 </form>
-
+</div>
 <?php
 
 session_start();
@@ -68,6 +67,8 @@ if (isset($_POST["submitlogin"])) {
 }
 ?>
 
+<div class="formulariologin">
+<h2 align="center" class="cabeform">Registro</h2>
 <form class="sign-in" method="post" action="index.php">
 <label for="nombre">Nombre</label>
 <input name="nombre" type="text">
@@ -135,7 +136,6 @@ if (isset($_POST["submitregistro"])) {
     else {
         var_dump(count($erroresregistro));
         if (count($erroresregistro)==0) {
-        echo "he llegaooo";
 
         $sql = "INSERT INTO usuarios (nombre,apellidos,correo,edad,contrasena,dirección) 
                 VALUES ('$nombre','$apellidos','$correo',$edad,'$password_segura','$direccion')";
@@ -157,8 +157,6 @@ if (isset($_POST["submitregistro"])) {
 
 ?>
 </div>
-</div>
 <?php include 'INCLUDES/footer.php';?>
-</div>
 </body>
 </html>

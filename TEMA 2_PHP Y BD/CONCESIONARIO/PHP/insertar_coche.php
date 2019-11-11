@@ -6,13 +6,13 @@
 </head>
 
 <body>
-<div class="contenedor">
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>
 <?php require_once 'INCLUDES/conecta.php';?>
 
+<div class="contenido">
 <div class="formulario">
-<h2 align="center">Añadir un coche</h2>
+<h2 align="center" class="cabeform">Añadir un coche</h2>
 <form action="insertar_coche.php" method="post"> 
 <label for="modelo">Modelo</label>
 <input type="text" placeholder="Porsche" name="modelo">
@@ -70,7 +70,7 @@ if(isset($_POST["submit"])){
   }
 ?>
 </div>
-<?php include 'INCLUDES/footer.php';?>
 </div>
+<?php include 'INCLUDES/footer.php';?>
 </body>
 </html>

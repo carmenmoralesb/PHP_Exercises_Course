@@ -6,11 +6,20 @@
 </head>
 
 <body>
-<?php include 'INCLUDES/header.php';?>
+<?php include 'INCLUDES/header_sesion.php';?>
 <?php require_once 'INCLUDES/conecta.php';?>
-
 <div class="contenido">
-<div class="formularioregistro">
+
+<?php
+if (isset($_SESSION['usuario'])) {
+    unset($_SESSION['usuario']);
+    unset($_SESSION['contrasena']);
+    session_destroy();
+}
+
+?>
+
+<div class="formulariologin">
 <h2 align="center" class="cabeform">Iniciar sesión</h2>
 <form class="sign-up" method="post" action="index.php">
 <label for="correo">E-mail</label>
@@ -19,55 +28,63 @@
 <input type="password" name="password">
 <input type="submit" value="Iniciar sesión" name="submitlogin"/>
 </form>
-</div>
 <?php
 
-session_start();
 
 $erroreslogin = Array();
 $erroresregistro = Array();
+
 
 if (isset($_POST["submitlogin"])) {
     $email = $_POST["correo"]? mysqli_real_escape_string($conexion, trim ($_POST['correo'])) : false;
     $contrasena = $_POST["password"]? mysqli_real_escape_string($conexion, trim ($_POST['password'])) : false;
     
     //var_dump($nombre);
-    var_dump($contrasena);
 
     $consulta = "SELECT * FROM usuarios WHERE correo = '$email'";
     $existe = mysqli_query($conexion,$consulta);
     //var_dump($existe);
 
-    if (mysqli_num_rows($existe)>0) {
-        while ($fila= mysqli_fetch_assoc($existe) ){
-            $nombre = $fila['nombre'];
-            $correo = $fila['correo'];
-            $verificar = password_verify($contrasena, $fila[ 'contrasena']);
-            //var_dump($verificar);
-        }
-
-        if (count($erroreslogin)==0 && $verificar==true) {
-            //session_regenerate_id();
-            $_SESSION['uname'] = $nombre;
-
-            echo 'Bienvenido ' . $_SESSION['uname'] . '!';
-            header("location: listar_coches.php");
-        }
-
-    else {
-        foreach ($erroreslogin as $error) {
-            echo "<div class='mensajes warning'>Ese usuario no está creado</div>";
-        }
+    if (empty($email)) {
+        $erroreslogin['email'] = "No puedes dejar el email vacio";
+      }
+  
+    if (empty($contrasena)) {
+        $erroreslogin['contrasena'] = "Escribe una contraseña";
+      }
+      
+    if (mysqli_num_rows($existe)<0) {
+        $erroreslogin["noexiste"] = 'No existe el usuario';
     }
-}
 
-    else {
-        $erroreslogin["usuario"] = "No existe el usuario";
+    else 
+    {
+        while ($fila= mysqli_fetch_assoc($existe) ){
+                $nombre = $fila['nombre'];
+                $correo = $fila['correo'];
+                $verificar = password_verify($contrasena, $fila['contrasena']);
+            }
+            
+            if (count($erroreslogin)==0 && $verificar==true) {
+                session_start();
+                $_SESSION['usuario'] = $correo;
+                header("location: listar_coches.php");
+            }
+            else {
+                $erroreslogin["contraseña incorrecta"] = 'Esa contraseña no es correcta';
+            }
+        }
+
+    if (count($erroreslogin) > 0) {
+        foreach ($erroreslogin as $error) {
+            echo "<div class='mensajes warning'>$error</div>";
+        }
     }
 }
 ?>
+</div>
 
-<div class="formulariologin">
+<div class="formularioregistro">
 <h2 align="center" class="cabeform">Registro</h2>
 <form class="sign-in" method="post" action="index.php">
 <label for="nombre">Nombre</label>
@@ -85,8 +102,7 @@ if (isset($_POST["submitlogin"])) {
 <label for="password2">Repite la contraseña</label>
 <input type="password" name="password2">
 <input type="submit" value="Registrarme" name="submitregistro"/>
-</div>
-
+</form>
 <?php
 
 if (isset($_POST["submitregistro"])) {
@@ -134,7 +150,6 @@ if (isset($_POST["submitregistro"])) {
 
 
     else {
-        var_dump(count($erroresregistro));
         if (count($erroresregistro)==0) {
 
         $sql = "INSERT INTO usuarios (nombre,apellidos,correo,edad,contrasena,dirección) 
@@ -144,6 +159,8 @@ if (isset($_POST["submitregistro"])) {
         $result = mysqli_query($conexion,$sql);
 
         if ($result) {
+          session_start();
+          $_SESSION['usuario'] = $correo;
           header("Location: listar_coches.php");
         }
     }
@@ -156,6 +173,7 @@ if (isset($_POST["submitregistro"])) {
 }
 
 ?>
+</div>
 </div>
 <?php include 'INCLUDES/footer.php';?>
 </body>

@@ -96,6 +96,13 @@ table {
   width: 127%;
 }
 
+.cabecera .bienvenida {
+  float: right;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 30px;
+  margin-top: 30px;
+}
+
 
 
 th, td {
@@ -146,7 +153,7 @@ form > button form > .mensajes {
   padding: 1em;
 }
 
-.formularioregistro {
+.formulariologin {
   margin-right: 20%;
 }
 
@@ -165,7 +172,7 @@ form > button form > .mensajes {
   padding: 20px;
   color: white;
   opacity: 1;
-  width: 120%;
+  width: 50%;
   margin-top: 30px;
   transition: opacity 0.6s;
   font-family: 'Roboto', sans-serif;

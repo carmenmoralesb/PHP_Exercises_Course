@@ -7,11 +7,13 @@
 <header>
         <nav class='naveg'>
             <ul>
-                <li><a href='01_ini.php'>Ejercicio 1</a></li>
-                <li><a href='02.php'>Ejercicio 2</a></li>
-                <li><a href='03.php'>Ejercicio 3</a></li>
-                <li><a href='04.php'>Ejercicio 4</a></li>
-                <li><a href='05.html'>Ejercicio 5</a></li>
+            <li><a href='01_ini.php'>Ejercicio 1</a></li>
+<li><a href='02.php'>Ejercicio 2</a></li>
+<li><a href='03.php'>Ejercicio 3</a></li>
+<li><a href='04.php'>Ejercicio 4</a></li>
+<li><a href='05.php'>Ejercicio 5</a></li>
+<li><a href='06.php'>Ejercicio 6</a></li>
+<li><a href='07.php'>Ejercicio 7</a></li>
             </ul>
     </nav>
     </header>
@@ -20,6 +22,7 @@
 el máximo y el mínimo</p>
 
 <?php
+$numArray  = [];
 // creo un array vacio con null y 10 posiciones
 if (isset($_POST['numeroIntroducido'])) {
     $numeroIntroducido = (int)$_POST['numeroIntroducido'];
@@ -30,31 +33,26 @@ if (isset($_POST['numeroIntroducido'])) {
 else {
     $numeroIntroducido = 0;
     $contador = 0;
-    $numarray  = []; 
     $numTexto = '';
 }
 // si el contador es menor que 10
 if ($contador<10) {
     // pido numeros
     if ($numeroIntroducido >= 0) {
-        // losmeto en la posicion [contador] del array
-        $numTexto += $numeroTexto . " " . $numeroIntroducido;
-        // cadena con los numeros introducidos
-        $contador++;
         require_once '06form.php';
+        $numArray = array_push($numArray, $numeroIntroducido);
     }
     require_once '06form.php';
-    var_dump($numTexto);
     var_dump($contador);
 }
 
 else {
+    var_dump($numArray);
     // metodo explode para splitear la cadena
-    $numarray = explode(" ", $numeroTexto);
     $maximo = 0;
     $minimo = 0;           
     
-    foreach ($numarray as $n) {
+    foreach ($numArray as $n) {
         if ($n>$maximo) {
             $maximo = $n;
         }

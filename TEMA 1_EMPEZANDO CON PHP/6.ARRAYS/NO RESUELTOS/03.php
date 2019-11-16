@@ -11,11 +11,14 @@
     <header>
         <nav class='naveg'>
             <ul>
-                <li><a href='01_ini.php'>Ejercicio 1</a></li>
-                <li><a href='02.php'>Ejercicio 2</a></li>
-                <li><a href='03.php'>Ejercicio 3</a></li>
-                <li><a href='04.php'>Ejercicio 4</a></li>
-                <li><a href='05.html'>Ejercicio 5</a></li>
+            <li><a href='01_ini.php'>Ejercicio 1</a></li>
+            <li><a href='01_ini.php'>Ejercicio 1</a></li>
+<li><a href='02.php'>Ejercicio 2</a></li>
+<li><a href='03.php'>Ejercicio 3</a></li>
+<li><a href='04.php'>Ejercicio 4</a></li>
+<li><a href='05.php'>Ejercicio 5</a></li>
+<li><a href='06.php'>Ejercicio 6</a></li>
+<li><a href='07.php'>Ejercicio 7</a></li>
             </ul>
     </nav>
     </header>

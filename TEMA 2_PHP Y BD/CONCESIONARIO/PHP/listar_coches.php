@@ -19,6 +19,15 @@ $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0){
 ?>
 <div class="contenido">
+<p><?php
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+}
+
+
+
+?></p>
 <table>
 <tr>
 <th>ID</th>

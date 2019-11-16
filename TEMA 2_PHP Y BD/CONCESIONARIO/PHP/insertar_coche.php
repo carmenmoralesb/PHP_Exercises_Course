@@ -3,6 +3,8 @@
 <head>
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></head>
+
 </head>
 
 <body>
@@ -15,9 +17,9 @@
 <h2 align="center" class="cabeform">Añadir un coche</h2>
 <form action="insertar_coche.php" method="post"> 
 <label for="modelo">Modelo</label>
-<input type="text" placeholder="Porsche" name="modelo">
+<input type="text" placeholder="CT 2011" name="modelo">
 <label for="marca">Marca</label>
-<input type="text" placeholder="Porsche Cayenne" name="marca">
+<input type="text" placeholder="Lexus" name="marca">
 <label for="precio">Precio</label>
 <input type="number" placeholder="€" name="precio">
 <label for="marca">Stock</label>
@@ -28,7 +30,7 @@
 <?php 
 if(isset($_POST["submit"])){
     
-    $modelo = $_POST['modelo']? mysqli_real_escape_string($conexion, trim ($_POST['nombre'])) : false;
+    $modelo = $_POST['modelo']? mysqli_real_escape_string($conexion, trim ($_POST['modelo'])) : false;
     $marca =  $_POST['marca']? mysqli_real_escape_string($conexion, trim ($_POST['marca'])) : false;
     $precio = $_POST['precio'];
     $stock =  $_POST['stock'];

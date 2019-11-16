@@ -9,15 +9,21 @@
 <?php include 'INCLUDES/header.php';?>
 <?php include 'INCLUDES/nav.php';?>
 <?php require_once 'INCLUDES/conecta.php';?>
+
 <div class="contenido">
 <?php 
 
     $id = intval($_GET["id"]);
     $sql = "DELETE FROM coche WHERE id = $id";
-    $result = mysqli_query($conexion,$sql);
+    $resultado = mysqli_query($conexion,$sql);
     
-    if ($result) {
+    if ($resultado) {
         header("Location: listar_coches.php");
+    }
+
+    else {
+        echo "<div class='mensajes error'>
+              No se ha podido borrar</div>";
     }
     ?>
 </div>

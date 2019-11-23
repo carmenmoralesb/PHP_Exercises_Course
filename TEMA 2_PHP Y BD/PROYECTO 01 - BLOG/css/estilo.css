@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#contenedor {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    " header header "
+    " main aside"
+    " pie pie";
+  min-height: 100vh;
+  background: #D0D0D0;
+}
+
+.cabecera {
+  grid-area: header;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  font-weight: normal;
+  align-items: center;
+  background:#2B2B2B;
+}
+
+.cabecera img {
+  width: 300px;
+  margin: 0 0 0 .45em;
+}
+
+.navegacion {
+  display: flex;
+  margin-left: 40px;
+  list-style:none;
+}
+
+.navegacion li {
+  border: solid 2px grey;
+  padding: 10px;
+  margin: 0px 10px 0px 10px;
+}
+
+.navegacion a {
+   font-family: 'Press Start 2P', cursive;
+    text-decoration:none;
+    padding: 1em;
+    font-size: 12px;
+    color: white;
+  }
+  
+.navegacion li:last-of-type a {
+    border-bottom: none;
+}
+
+
+#central {
+  grid-area: main;
+  display: flex;
+  background-color: white;
+  margin: 40px 20px 0px 20px;
+  flex-direction: column;
+}
+
+#central section {
+  margin: 40px 30px 10px 30px;   
+}
+
+#central section img {
+  display: block;
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin-right: 40px;
+}
+
+#central section h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.encabezado {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 60px;
+  background-color: #2B2B2B;
+}
+
+.encabezado h2 {
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: white;
+}
+
+.encabezado img {
+  width: 50px;
+  height: 50px;
+}
+
+.lateral {
+  margin-top: 40px;
+  margin-right: 10px;
+  grid-area: aside;
+}
+
+form {
+  display: grid;
+  grid-template-columns: [labels] auto [controls] 1fr;
+  grid-auto-flow: row;
+  grid-gap: 0.8em;
+  background: #eee;
+  padding: 1.2em;
+  margin-bottom: 100px;
+}
+
+form label {
+  grid-column: labels;
+  grid-row: auto;
+  padding: 8px;
+  background:#2B2B2B;
+  font-family: 'Press Start 2P';
+  font-size: 9px;
+  color:white;
+}
+
+form > textarea,
+form > select,
+form > button form > .mensajes {
+  grid-column: controls;
+  grid-row: auto;
+  border: none;
+  padding: 1em;
+}
+
+input[type="submit"] {
+  grid-column: controls;
+  background: #7C7C7C;
+	border-bottom: 4px inset rgba(0,0,0,.5);
+	border-left: 4px inset rgba(0,0,0,.5);
+	border-right: 4px inset rgba(255,255,255,.5);
+	border-top: 4px inset rgba(255,255,255,.5);
+	box-sizing: border-box;
+	color: white;
+	cursor: pointer;
+  display: inline-block;
+  font-family: 'Press Start 2P';
+	font-size: 13px;
+	text-transform: uppercase;
+	width: auto;
+}
+
+.formulariologin {
+  margin-right: 20%;
+}
+
+.cabeform {
+  padding: 10px;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #2B2B2B;
+  color: white;
+}
+
+
+.pie {
+  grid-area: pie;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2B2B2B;
+  margin: 40px 0;
+  color: white;
+  padding: 50px;
+}
+
+.pie h3 {
+  background-color: #E0859D;
+  font-family:'Press Start 2P', cursive;
+  padding: 0.5em;
+  margin-left: 3x;
+  margin-bottom: 10px;
+}
+
+.pie li {
+  list-style: none;
+}
+
+.pie ul li a {
+  color: white;
+}
+
+.pie a:hover,
+.pie a:visited {
+  color: pink;
+}

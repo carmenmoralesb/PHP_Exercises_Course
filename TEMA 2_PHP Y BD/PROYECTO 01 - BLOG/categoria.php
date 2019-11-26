@@ -3,9 +3,10 @@
 <head>
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bedstead" type="text/css"/>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" type="text/css"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bedstead" type="text/css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+
 </head>
 
 <body>    
@@ -17,11 +18,15 @@
 <div id="central">
 <div class="encabezado">
 <h2>Últimas entradas</h2>
-
 </div>
-<?php
+
+<?php 
+
+$categoria = $_GET['cat'];
+
 $sql= "SELECT entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
-       INNER JOIN categorias ON entradas.categoria_id = categorias.id";
+       INNER JOIN categorias ON entradas.categoria_id = categorias.id 
+       WHERE categorias.id = $categoria";
 
 $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0) {
@@ -33,7 +38,7 @@ if (mysqli_num_rows($resultado)>0) {
     <img src="imagenes/entrada.png">
     <div class="cabecera_entrada">
     <h3><?php echo $fila['titulo']?></h3>
-    <?php if  (isset($_SESSION['nombre']) && $_SESSION['id']==$fila['usuario_id']) {?>
+    <?php if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
     <a href="borrar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
     <i class="fas fa-minus-square"></i></a>
     <a href="editar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
@@ -51,10 +56,9 @@ if (mysqli_num_rows($resultado)>0) {
 }?>
 </div>
 
-
 <?php 
 
-if (!(isset($_SESSION['nombre']))) {
+if (!(isset($_SESSION['usuario']))) {
 $erroreslogin = Array();
 $erroresregistro = Array();
 $mensajesexito = Array();
@@ -87,7 +91,7 @@ if (isset($_POST["submitlogin"])) {
             }
             
             if (count($erroreslogin)==0 && $verificar==true) {
-                $_SESSION['nombre'] = $nombre;
+                $_SESSION['usuario'] = $nombre;
                 $_SESSION['correo'] = $correo;
                 header("location: index.php");
             }
@@ -153,7 +157,7 @@ if (isset($_POST["submitregistro"])) {
         $result = mysqli_query($conexion,$sql);
 
         if ($result) {
-          $_SESSION['nombre'] = $usuario;
+          $_SESSION['usuario'] = $usuario;
           $_SESSION['correo'] = $correo;
           header("Location: index.php");
         }
@@ -165,13 +169,9 @@ if (isset($_POST["submitregistro"])) {
 
 else {
     $correo = $_SESSION['correo'];
-    $nombre = $_SESSION['nombre'];
-
-    //var_dump($correo);
-    //var_dump($nombre);
     //var_dump($correo);
 
-    $consulta = "SELECT id FROM usuarios WHERE email = '$correo' AND nombre='$nombre'";
+    $consulta = "SELECT id FROM usuarios WHERE email = '$correo'";
     //var_dump($consulta);
     $existe = mysqli_query($conexion,$consulta);
     
@@ -183,7 +183,6 @@ else {
             //var_dump($fila['id']);
     }
     $_SESSION['id'] = $idusuario;
-    //var_dump($_SESSION['id']);
     require_once "require/forms_panel.php";
 }
 }

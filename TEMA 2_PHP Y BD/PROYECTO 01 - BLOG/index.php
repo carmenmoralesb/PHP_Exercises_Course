@@ -33,7 +33,7 @@ if (mysqli_num_rows($resultado)>0) {
     <img src="imagenes/entrada.png">
     <div class="cabecera_entrada">
     <h3><?php echo $fila['titulo']?></h3>
-    <?php if  (isset($_SESSION['nombre']) && $_SESSION['id']==$fila['usuario_id']) {?>
+    <?php if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
     <a href="borrar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
     <i class="fas fa-minus-square"></i></a>
     <a href="editar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
@@ -81,14 +81,16 @@ if (isset($_POST["submitlogin"])) {
     if ($existe) 
     {
         while ($fila= mysqli_fetch_assoc($existe)){
+                $id = $fila['id'];
                 $nombre = $fila['nombre'];
                 $correo = $fila['email'];
                 $verificar = password_verify($contrasena, $fila['password']);
             }
             
-            if (count($erroreslogin)==0 && $verificar==true) {
+            if (count($erroreslogin)==0 && $verificar) {
                 $_SESSION['nombre'] = $nombre;
                 $_SESSION['correo'] = $correo;
+                $_SESSION['id'] = $id;
                 header("location: index.php");
             }
             else {
@@ -99,6 +101,7 @@ if (isset($_POST["submitlogin"])) {
         $erroreslogin["usuario no válido"] = 'Ese usuario no existe';
     }
     $_SESSION['errores'] = $erroreslogin;
+
 }
 
 
@@ -185,6 +188,7 @@ else {
     $_SESSION['id'] = $idusuario;
     //var_dump($_SESSION['id']);
     require_once "require/forms_panel.php";
+
 }
 }
 ?>

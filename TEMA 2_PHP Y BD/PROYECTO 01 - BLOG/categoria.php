@@ -58,7 +58,7 @@ if (mysqli_num_rows($resultado)>0) {
 
 <?php 
 
-if (!(isset($_SESSION['usuario']))) {
+if (!(isset($_SESSION['nombre']))) {
 $erroreslogin = Array();
 $erroresregistro = Array();
 $mensajesexito = Array();
@@ -103,6 +103,7 @@ if (isset($_POST["submitlogin"])) {
         $erroreslogin["usuario no válido"] = 'Ese usuario no existe';
     }
     $_SESSION['errores'] = $erroreslogin;
+
 }
 
 

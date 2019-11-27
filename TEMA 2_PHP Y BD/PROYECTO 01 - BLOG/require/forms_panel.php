@@ -1,7 +1,6 @@
 <div class="lateral">
-    <div class="lat1">
     <?php require_once "require/form_buscar.php"?>
-    </div>
+
     
     <div class="lat1">
     <h2 align="center" class="cabeform">Panel</h2>

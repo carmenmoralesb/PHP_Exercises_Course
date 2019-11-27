@@ -20,38 +20,47 @@
 
 </div>
 <?php
-$sql= "SELECT entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
-       INNER JOIN categorias ON entradas.categoria_id = categorias.id";
+$sql= "SELECT entradas.fecha AS entrada_fecha, entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
+       INNER JOIN categorias ON entradas.categoria_id = categorias.id
+       ORDER BY entrada_fecha asc";
 
 $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0) {
     while ($fila= mysqli_fetch_assoc($resultado)) {
-        
+          $id = $fila['entrada_id'];
+          $autor = $fila['usunombre'];
+          $titulo = $fila['titulo'];
+          $fecha = $fila['entrada_fecha'];
+          // sustraigo parte de la descripcion para ver una vista previa de la entrada
+          $descripcion = substr($fila['descripcion'],0,600);
 ?>
 
 <section>
     <img src="imagenes/entrada.png">
     <div class="cabecera_entrada">
-    <h3><?php echo $fila['titulo']?></h3>
-    <?php if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
-    <a href="borrar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
+    <h2><?php echo $fila['titulo']?></h2>
+    
+    <?php 
+    // si la sesion id está seteada es porque el usuario está logueado, nos queda por ver
+    // si el usuairo es el mismo que el autor de la entrada, si lo es aparecen los iconos
+    // de edicion
+    if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
+    <a href="borrar_entrada.php?id_entrada=<?php ECHO $id ?>">
     <i class="fas fa-minus-square"></i></a>
-    <a href="editar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
+    <a href="editar_entrada.php?id_entrada=<?php ECHO $id ?>">
     <i class="fas fa-pen-square"></i></a>
     <?php }?>
     </div>
+    <h3><?php echo $fecha ?></h3>
     <article>
-    <h5>Autor: <?php echo $fila['usunombre']?></h5>
-    <p><?php echo substr($fila['descripcion'],0,200)?> ...
-    </p>
+    <h4>Autor: <?php echo $autor ?></h4>
+    <p><?php echo $descripcion ?></p>
     <a><button>Leer más</button></a>
 </article>
 </section>
     <?php } 
 }?>
 </div>
-
-
 <?php 
 
 if (!(isset($_SESSION['nombre']))) {
@@ -88,6 +97,8 @@ if (isset($_POST["submitlogin"])) {
             }
             
             if (count($erroreslogin)==0 && $verificar) {
+                // si todo esto se cumple el usuario ha podido iniciar sesion correctamente
+                // y se crea las variables de usuario de SESSION
                 $_SESSION['nombre'] = $nombre;
                 $_SESSION['correo'] = $correo;
                 $_SESSION['id'] = $id;
@@ -166,14 +177,19 @@ if (isset($_POST["submitregistro"])) {
     }
 }
 
+// si el id de SESSION está seteado es porque hay un usuario logueado, asi que
+// muestro el panel lateral con las opciones de creación
+
 else {
+    // si el usuario está logueado
     $correo = $_SESSION['correo'];
     $nombre = $_SESSION['nombre'];
-
-    //var_dump($correo);
-    //var_dump($nombre);
-    //var_dump($correo);
-
+    // se setean las variables de error
+    $_SESSION['errores'] = Array();
+    $_SESSION['exito'] = Array();
+    
+    // selecciono el id para guardarlo en otra variable ya que es útil para
+    // por ej la edicion de entradas y la creacion
     $consulta = "SELECT id FROM usuarios WHERE email = '$correo' AND nombre='$nombre'";
     //var_dump($consulta);
     $existe = mysqli_query($conexion,$consulta);

@@ -1,8 +1,5 @@
 <div class="lateral">
-<div class="lat1">
 <?php require_once "require/form_buscar.php"?>
-</form>
-</div>
 
 
 <div class="lat1">
@@ -45,14 +42,17 @@
     </form>
     </div>
 
-<?php if (isset($_SESSION['errores']) && isset($_POST["submitregistro"])) {
+<?php 
+
+$_SESSION['errores'] = Array();
+
+if (isset($_SESSION['errores']) && isset($_POST["submitregistro"])) {
             if (count($_SESSION['errores']) > 0) {
                 $errores = $_SESSION['errores'];
                 foreach ($errores as $error) {
                 echo "<div class='mensajes warning'>$error</div>";
                 }
             }
-            unset($_SESSION['errores']);
         }
     
     ?>

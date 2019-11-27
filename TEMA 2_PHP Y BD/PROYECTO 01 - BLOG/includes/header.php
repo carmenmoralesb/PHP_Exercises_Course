@@ -1,7 +1,13 @@
 <header class="cabecera">
-<a href="index.php"><img src="imagenes/space-review.png"></a>
-
+<a href="index.php"><img src="imagenes/logo.png"></a>
 <ul class="navegacion">
+<ul>
+<li><a>Sobre mí</a></li>
+<li><a>Contacto</a></li>
+</ul>
+</header>
+<div id="navegacion">
+<ul class="navegacion2">
 <?php
 require_once 'includes/conecta.php';
 
@@ -15,6 +21,5 @@ if (mysqli_num_rows($resultado)>0){
     <li><a href="categoria.php?cat=<?php echo $fila['id'];?>">
     <?php echo $fila['nombre']; }
     } ?></a></li>
-    <li><a href="sobre_mi.php">SOBRE MI</a></li>
 </ul>
-</header>
+</div>

@@ -19,61 +19,6 @@
 <h2>Crear una entrada</h2>
 </div>
 <?php require_once "require/form_entrada.php"?>
-
-<?php
-
-$errores = Array();
-
-if(isset($_POST["submitentrada"])){
-    
-    $titulo = $_POST['titulo']? mysqli_real_escape_string($conexion, trim ($_POST['titulo'])) : false;
-    $categoria =  $_POST['categoria'];
-    $descripcion = $_POST['descripcion']? mysqli_real_escape_string($conexion, trim ($_POST['descripcion'])) : false;
-    
-    $correo = $_SESSION['correo']; 
-
-    $sql2 = "SELECT id FROM usuarios WHERE email='$correo'";
-    $resultado = mysqli_query($conexion,$sql2);
-
-    if (mysqli_num_rows($resultado)>0) {
-      while ($fila= mysqli_fetch_assoc($resultado)) {
-        $idusuario = $fila['id'];
-      }  
-    }
-
-    $sql3 = "SELECT id FROM categorias WHERE nombre='$categoria'";
-    $resultado2 = mysqli_query($conexion,$sql3);
-    //var_dump($sql3);
-    //var_dump($resultado2);
-
-    if (mysqli_num_rows($resultado2)>0) {
-      while ($fila= mysqli_fetch_assoc($resultado2)) {
-        $idcat = $fila['id'];
-        //var_dump($idcat);
-      }  
-    }
-
-    if (empty($titulo)) {
-      $errores['titulo'] = "Error, escribe un titulo";
-    }
-
-    if (empty($descripcion)) {
-      $errores['descripcion'] = "Error, escribe una descripcion";
-    }
-
-    else {
-      $sql = "INSERT INTO entradas (titulo,usuario_id,descripcion,categoria_id,fecha) 
-      VALUES ('$titulo',$idusuario,'$descripcion',$idcat,curdate())";
-      $result = mysqli_query($conexion,$sql);
-
-      if ($result) {
-        header("Location: index.php");
-      }
-    }
-    $_SESSION['errores'] = $errores;
-  }
-?>
-
 </div>
 
 <?php 

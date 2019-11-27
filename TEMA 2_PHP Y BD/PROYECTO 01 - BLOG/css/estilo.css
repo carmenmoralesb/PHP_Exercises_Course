@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|Playfair+Display:400,700,900,900i&display=swap');
 
 * {
   padding: 0;
@@ -7,26 +6,26 @@
 }
 
 body {
-  background-color: #D0D0D0;
+  background-color: #EEEEEE;
 }
 
 #contenedor {
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
     " header header "
+    " nav nav"
     " main aside"
     " pie pie";
   min-height: 100vh;
-  background: #D0D0D0;
+  background: #EEEEEE;
 }
 
 .cabecera {
   grid-area: header;
-  font-family: 'Press Start 2P', cursive;
   display: flex;
-  font-size: 14px;
+  flex-direction: row;
   font-weight: normal;
   align-items: center;
   background:#2B2B2B;
@@ -36,32 +35,67 @@ body {
 }
 
 .cabecera img {
-  width: 300px;
+  width: 100px;
   margin: 0 0 0 .45em;
 }
 
 .navegacion {
-  display: flex;
   margin-left: 40px;
-  list-style:none;
+}
+
+.navegacion ul {
+  display: flex;
+  flex-direction: row;
 }
 
 .navegacion li {
-  border: solid 2px grey;
+  list-style:none;
   padding: 10px;
   margin: 0px 10px 0px 10px;
 }
 
 .navegacion a {
-   font-family: 'Press Start 2P', cursive;
-    text-decoration:none;
-    padding: 1em;
-    font-size: 12px;
-    color: white;
+   font-family: 'Lato', sans-serif;
+   font-weight: 900;
+   text-decoration:none;
+   padding: 1em;
+   font-size: 12px;
+   color: white;
   }
   
 .navegacion li:last-of-type a {
     border-bottom: none;
+}
+
+#navegacion {
+  margin-top: 5%;
+  grid-area:nav;
+  border: solid 3px white;
+  padding: 0.5em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+
+#navegacion .navegacion2 {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navegacion2 li  {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: black;
+  list-style: none;
+}
+
+a:active,
+a:visited,
+a {
+  color: black;
+  text-decoration: none;
 }
 
 
@@ -71,15 +105,11 @@ body {
   background-color: #EEEEEE;
   margin: 40px 20px 0px 20px;
   flex-direction: column;
+  background-color: white;
 }
 
 #central section {
   margin: 40px 30px 10px 30px;   
-}
-
-.cabecera_entrada {
-  display:flex;
-  flex-direction: row;
 }
 
 .cabecera_entrada i {
@@ -90,13 +120,31 @@ body {
 #central section img {
   display: block;
   float: left;
-  width: 150px;
-  height: 150px;
+  border: solid 3px lightgray;
+  width: 280px;
+  height: 300px;
   margin-right: 40px;
 }
 
 #central section h3 {
-  font-family: 'BedsteadRegular';
+  font-family: 'Playfair Display', serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-right: 10px;
+}
+
+#central section h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-weight: normal;
+  font-style: normal;
+  margin-right: 10px;
+}
+
+#central section h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 12px;
   font-weight: normal;
   font-style: normal;
   margin-right: 10px;
@@ -106,14 +154,12 @@ body {
   display: flex;
   flex-direction: row;
   flex-basis: 60px;
-  background-color: #2B2B2B;
 }
 
 .encabezado h2 {
   padding: 10px;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 14px;
-  color: white;
+  font-family: 'Playfair Display', serif;
+  color: black;
 }
 
 .encabezado img {
@@ -128,19 +174,19 @@ body {
 }
 
 .lat1 {
-  box-shadow: 10px 10px 5px #aaaaaa;
-  background-color: #EEEEEE;
+  background-color: #F6F6F3;
   margin: 20px 0px 20px 0px;
 }
 
 p {
-  font-family: 'NowRegular';
   font-weight: normal;
   font-style: normal;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  margin-top: 0.2em;
 }
 
 h5 {
-  font-family: 'NowRegular';
   font-weight: normal;
   font-style: normal;
 }
@@ -149,60 +195,61 @@ button {
   margin-top: 5px;
   grid-row: auto;
   padding: 8px;
-  background:#2B2B2B;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  border: none;
   color:white;
+  background-color: #2B2B2B;
 }
+
+button:hover {
+  border: none;
+  background-color: #2B2B2B;
+  font-weight: 900;
+  font-size: 20px;
+}
+
 
 .regresar {
   grid-column: controls;
-  background: #7C7C7C;
-	border-bottom: 4px inset rgba(0,0,0,.5);
-	border-left: 4px inset rgba(0,0,0,.5);
-	border-right: 4px inset rgba(255,255,255,.5);
-	border-top: 4px inset rgba(255,255,255,.5);
 	box-sizing: border-box;
 	color: white;
 	cursor: pointer;
   display: inline-block;
-  font-family: 'Press Start 2P';
 	font-size: 13px;
 	text-transform: uppercase;
 	width: auto;
 }
 
 .botonpanel {
-  background: #7C7C7C;
-	border-bottom: 3px inset rgba(0,0,0,.5);
-	border-left: 3px inset rgba(0,0,0,.5);
-	border-right: 3px inset rgba(255,255,255,.5);
-	border-top: 3px inset rgba(255,255,255,.5);
+  background: #2B2B2B;
 	box-sizing: border-box;
 	color: white;
-	cursor: pointer;
-  font-family: 'Press Start 2P';
-  font-size: 13px;
+  font-family: 'Lato';
+  font-weight: bold;
 	text-transform: uppercase;
-	width: auto;
 }
 
 .listapanel {
   list-style:none;
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+  padding: 0.5em;
 }
 
 .listapanel li {
   display:flex;
   flex-direction: column;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1.5em;
   width: 80%;
 
 }
 
 .listapanel a {
-  color: black;
+  color: white;
   text-decoration: none;
+  padding: 0.5em;
 }
 
 .listapanel a:hover {
@@ -212,59 +259,60 @@ button {
 
 form {
   display: grid;
-  grid-template-columns: [labels] auto [controls] 1fr;
+  grid-template-columns: [labels] auto [controls] 1fr [boton] auto;
   grid-auto-flow: row;
   grid-gap: 0.8em;
   align-self: center;
-  background: #EEEEEE;
   padding: 2.2em;
-  width: 50%;
+  width: 80%;
 }
 
 form label {
   grid-column: labels;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   grid-row: auto;
   padding: 8px;
-  background:#2B2B2B;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
+  background:#A99478;
   color:white;
 }
 
 form > textarea,
 form > select,
-form > button {
+form > input
+{  
   grid-column: controls;
   grid-row: auto;
   border: none;
 }
 
-input[type="submit"] {
-  grid-column: controls;
-  background: #7C7C7C;
-	border-bottom: 4px inset rgba(0,0,0,.5);
-	border-left: 4px inset rgba(0,0,0,.5);
-	border-right: 4px inset rgba(255,255,255,.5);
-	border-top: 4px inset rgba(255,255,255,.5);
-	box-sizing: border-box;
-	color: white;
-	cursor: pointer;
-  display: inline-block;
-  font-family: 'Press Start 2P';
-	font-size: 13px;
-	text-transform: uppercase;
-	width: auto;
+.busqueda {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
 }
 
-.formulariologin {
-  margin-right: 20%;
+input[type="submit"] {
+  grid-column: controls;
+  margin-top: 5px;
+  grid-row: auto;
+  padding: 8px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  border: none;
+  color:white;
+  background-color: #2B2B2B;
 }
+
+textarea {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+}
+
 
 .cabeform {
   padding: 10px;
-  font-family: 'Press Start 2P', cursive;
-  background-color: #2B2B2B;
-  color: white;
+  font-family: 'Playfair Display', serif;
+  color: black;
 }
 
 
@@ -282,8 +330,8 @@ input[type="submit"] {
 }
 
 .pie h3 {
-  background-color: #E0859D;
-  font-family:'Press Start 2P', cursive;
+  background-color: #A99478;
+  font-family: 'Playfair Display', serif;
   padding: 0.5em;
   margin-left: 3x;
   margin-bottom: 10px;
@@ -310,35 +358,28 @@ input[type="submit"] {
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
 }
 
 .mensajes.error {
   padding: 8px;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
   color:white;
   background-color: #f44336;
 }
 
 .mensajes.success {
   padding: 8px;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
   color:white;
   background-color: #4caf50;
 }
 .mensajes.info {
   padding: 8px;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
   color:white;
   background-color: #2196f3;
 }
 .mensajes.warning {
   padding: 8px;
-  font-family: 'Press Start 2P';
-  font-size: 9px;
   color:white;
   background-color: #ff9800;
 }

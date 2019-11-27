@@ -4,6 +4,7 @@ if (!isset($_SESSION['nombre'])) {
     header("location: index.php");
 }
 
+$_SESSION['errores'] = Array();
 $id = $_SESSION['id'];
 
 $sql = "SELECT nombre,apellidos,email,password FROM usuarios WHERE id=$id";
@@ -27,7 +28,7 @@ if (mysqli_num_rows($resultado)>0) {
         <input name="apellidos" value=<?php echo $apellidos?> type="text">
         <label for="correo">Correo</label>
         <input name="correo" value=<?php echo $correo?> type="email">
-        <label for="password1">Nueva contraseña</label>
+        <label for="password1">Contraseña</label>
         <input type="password" name="password1">
         <input type="hidden" value=<?php echo $password?> name="password2">
         <input type="submit" value="Actualizar" name="submitdatos">

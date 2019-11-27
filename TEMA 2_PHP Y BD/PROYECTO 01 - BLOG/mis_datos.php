@@ -3,8 +3,6 @@
 <head>
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bedstead" type="text/css"/>
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" type="text/css"/>
 </head>
 
 <body>
@@ -49,6 +47,7 @@ if(isset($_POST["submitdatos"])){
     }
 
     if (!empty($nuevacontrasena)) {
+        // si se deja vacio la contrasena será la misma
         $password_segura = password_hash($nuevacontrasena, PASSWORD_BCRYPT, ['cost'=>4]);
     }
 

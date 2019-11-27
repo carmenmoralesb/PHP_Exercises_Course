@@ -24,9 +24,10 @@
 
 $categoria = $_GET['cat'];
 
-$sql= "SELECT entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
+$sql= "SELECT entradas.fecha AS entrada_fecha,entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,entradas.fecha,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
        INNER JOIN categorias ON entradas.categoria_id = categorias.id 
-       WHERE categorias.id = $categoria";
+       WHERE categorias.id = $categoria
+       ORDER BY entrada_fecha desc";
 
 $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0) {
@@ -37,7 +38,7 @@ if (mysqli_num_rows($resultado)>0) {
 <section>
     <img src="imagenes/entrada.png">
     <div class="cabecera_entrada">
-    <h3><?php echo $fila['titulo']?></h3>
+    <h2><?php echo $fila['titulo']?></h2>
     <?php if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
     <a href="borrar_entrada.php?id_entrada=<?php ECHO $fila['entrada_id'] ?>">
     <i class="fas fa-minus-square"></i></a>
@@ -45,9 +46,10 @@ if (mysqli_num_rows($resultado)>0) {
     <i class="fas fa-pen-square"></i></a>
     <?php }?>
     </div>
+    <h3><?php echo $fila['entrada_fecha']?></h3>
     <article>
-    <h5>Autor: <?php echo $fila['usunombre']?></h5>
-    <p><?php echo substr($fila['descripcion'],0,200)?> ...
+    <h4>Autor: <?php echo $fila['usunombre']?></h4>
+    <p><?php echo substr($fila['descripcion'],0,550)?> ...
     </p>
     <a><button>Leer más</button></a>
 </article>

@@ -17,7 +17,7 @@
 
 <div id="central">
 <div class="encabezado">
-<h2>Últimas entradas</h2>
+<h1>Últimas entradas</h1>
 </div>
 
 <?php 
@@ -31,8 +31,7 @@ $sql= "SELECT entradas.fecha AS entrada_fecha,entradas.id AS entrada_id,titulo,d
 
 $resultado= mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado)>0) {
-    while ($fila= mysqli_fetch_assoc($resultado)) {
-        
+    while ($fila= mysqli_fetch_assoc($resultado)) {  
 ?>
 
 <section>
@@ -51,7 +50,7 @@ if (mysqli_num_rows($resultado)>0) {
     <h4>Autor: <?php echo $fila['usunombre']?></h4>
     <p><?php echo substr($fila['descripcion'],0,550)?> ...
     </p>
-    <a><button>Leer más</button></a>
+    <a><button class="leer_mas">Leer más</button></a>
 </article>
 </section>
     <?php } 

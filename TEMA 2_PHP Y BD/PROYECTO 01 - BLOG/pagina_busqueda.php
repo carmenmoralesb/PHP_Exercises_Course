@@ -20,8 +20,15 @@
 
 </div>
 <?php
+
+$busqueda = $_POST['busqueda'];
+
+if (isset($busqueda)) {
+
 $sql= "SELECT entradas.fecha AS entrada_fecha, entradas.id AS entrada_id,titulo,descripcion,usuarios.nombre AS usunombre,categorias.nombre,usuario_id FROM entradas INNER JOIN usuarios ON entradas.usuario_id = usuarios.id 
        INNER JOIN categorias ON entradas.categoria_id = categorias.id
+       WHERE titulo REGEXP '$busqueda'
+       OR descripcion REGEXP '$busqueda'
        ORDER BY entrada_fecha desc";
 
 $resultado= mysqli_query($conexion, $sql);
@@ -59,6 +66,7 @@ if (mysqli_num_rows($resultado)>0) {
 </article>
 </section>
     <?php } 
+}
 }?>
 </div>
 <?php 

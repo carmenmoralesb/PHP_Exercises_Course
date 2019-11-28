@@ -35,24 +35,78 @@ if (mysqli_num_rows($resultado)>0) {
         <button formaction="index.php">Volver</button>
 </form>
 
-<?php if (isset($_SESSION['errores']) && isset($_POST["submitdatos"])) {
-            if (count($_SESSION['errores']) > 0) {
-                $errores = $_SESSION['errores'];
-                foreach ($errores as $error) {
-                echo "<div class='mensajes warning'>$error</div>";
-                }
-            }
-            unset($_SESSION['errores']);
-        }
+<?php 
 
-        if (isset($_SESSION['exito']) && isset($_POST["submitdatos"])) {
-            if (count($_SESSION['exito']) > 0) {
-                $exitos = $_SESSION['exito'];
-                foreach ($exitos as $exito) {
-                echo "<div class='mensajes success'>$exito</div>";
-                }
-            }
-            unset($_SESSION['exito']);
-        }
+$errores = Array();
+$exito = Array();
+
+if(isset($_POST["submitdatos"])){
     
-    ?>
+    $nombre = $_POST['nombre']? mysqli_real_escape_string($conexion, trim ($_POST['nombre'])) : false;
+    $apellidos = $_POST['apellidos']? mysqli_real_escape_string($conexion, trim ($_POST['apellidos'])) : false;
+    $correo = $_POST['correo']? mysqli_real_escape_string($conexion, trim ($_POST['correo'])) : false;
+    $nuevacontrasena = $_POST['password1']? mysqli_real_escape_string($conexion, trim ($_POST['password1'])) : false;
+    $password_antigua = $_POST['password2']? mysqli_real_escape_string($conexion, trim ($_POST['password2'])) : false;
+    //var_dump($sql2);
+    //var_dump($resultado);
+
+    
+    if (empty($nombre)) {
+        $errores['nombre'] = "Error, escribe un nombre";
+    }
+
+    if (empty($apellidos)) {
+        $errores['apellidos'] = "Error, escribe los apellidos";
+    }
+
+    if (empty($correo)) {
+        $errores['correo'] = "Error,escribe un correo";
+    }
+
+    if (!empty($nuevacontrasena)) {
+        // si se deja vacio la contrasena será la misma
+        $password_segura = password_hash($nuevacontrasena, PASSWORD_BCRYPT, ['cost'=>4]);
+    }
+
+    else {
+        $password_segura = $password_antigua;
+    }
+
+
+    if (count($errores)>0) {
+        $_SESSION['errores'] = $errores;
+        if (count($_SESSION['errores'])>0) {
+          $errores = $_SESSION['errores'];
+          foreach ($errores as $error) {
+            echo "<div class='mensajes error'>$error</div>";
+          }
+        }
+        $_SESSION['errores'] = Array();
+    }
+
+    else {
+        $sql = "UPDATE usuarios SET nombre='$nombre',apellidos='$apellidos',email='$correo',password='$password_segura'
+                WHERE id=$id"; 
+        $result = mysqli_query($conexion,$sql);
+
+        
+        if ($result) {
+            //header("Location: index.php");
+            $_SESSION['nombre'] = $nombre;
+            $_SESSION['apellidos'] = $apellidos;
+            $_SESSION['correo'] = $correo;
+            $_SESSION['password'] = $password_segura;
+
+            echo "<div class='mensajes success'>Credenciales cambiadas</div>";
+
+           
+            
+            //var_dump($_SESSION['mensajesexito']);
+        }
+    }
+
+
+    $_SESSION['errores'] = $errores;
+}
+
+?>

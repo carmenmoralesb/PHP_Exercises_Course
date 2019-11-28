@@ -1,5 +1,5 @@
-<form>
+<form method="post" action="pagina_busqueda.php">
 <p class="busqueda" Buscar>Buscar</p>
 <input type="textarea" name="busqueda"> 
-<input type="submit" value="Buscar" name="submitbuscar">
+<button type="submit"><i class="fas fa-search"></i></button>
 </form>

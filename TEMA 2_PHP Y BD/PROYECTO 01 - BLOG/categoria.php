@@ -64,7 +64,7 @@ $erroreslogin = Array();
 $erroresregistro = Array();
 $mensajesexito = Array();
 
-require_once 'require/formularios_lateral.php';
+require_once 'require/formularios_login.php';
 
 if (isset($_POST["submitlogin"])) {
     $email = $_POST["correo"]? mysqli_real_escape_string($conexion, trim ($_POST['correo'])) : false;

@@ -72,7 +72,7 @@ if (mysqli_num_rows($resultado)>0) {
 <?php 
 
 if (!(isset($_SESSION['nombre']))) {
-    require_once 'require/formularios_lateral.php';
+    require_once 'require/formularios_login.php';
 }
 // si el id de SESSION está seteado es porque hay un usuario logueado, asi que
 // muestro el panel lateral con las opciones de creación

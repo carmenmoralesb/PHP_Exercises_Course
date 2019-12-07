@@ -34,6 +34,7 @@ if (isset($_SESSION['usuario'])) {
 $erroreslogin = Array();
 $erroresregistro = Array();
 
+$verificar = null;
 
 if (isset($_POST["submitlogin"])) {
     $email = $_POST["correo"]? mysqli_real_escape_string($conexion, trim ($_POST['correo'])) : false;
@@ -67,7 +68,7 @@ if (isset($_POST["submitlogin"])) {
             
             if (count($erroreslogin)==0 && $verificar==true) {
                 session_start();
-                $_SESSION['usuario'] = $correo;
+                $_SESSION['usuario'] = $nombre;
                 header("location: listar_coches.php");
             }
             else {
@@ -77,7 +78,7 @@ if (isset($_POST["submitlogin"])) {
 
     if (count($erroreslogin) > 0) {
         foreach ($erroreslogin as $error) {
-            echo "<div class='mensajes warning'>$error</div>";
+            echo "<div class='mensajes error'>$error</div>";
         }
     }
 }
@@ -166,7 +167,7 @@ if (isset($_POST["submitregistro"])) {
     }
         else {
             foreach ($erroresregistro as $error) {
-                echo "<div class='mensajes warning'>$error</div>";
+                echo "<div class='mensajes error'>$error</div>";
             }
         }
     }

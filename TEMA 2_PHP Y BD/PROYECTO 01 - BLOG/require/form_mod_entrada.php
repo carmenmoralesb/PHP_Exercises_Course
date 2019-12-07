@@ -7,7 +7,7 @@
 
 $id_entrada = $_GET['id_entrada'];
 
-$sql2 = "SELECT id,titulo,descripcion,categoria_id,fecha FROM entradas WHERE id=$id_entrada";
+$sql2 = "SELECT id,titulo,descripcion,usuario_id,categoria_id,fecha,usuario_id FROM entradas WHERE id=$id_entrada";
 $resultado2= mysqli_query($conexion, $sql2);
     
 if (mysqli_num_rows($resultado2)>0) {
@@ -16,6 +16,12 @@ if (mysqli_num_rows($resultado2)>0) {
         $titulo = $fila['titulo'];
         $descripcion = $fila['descripcion'];
         $categoria = $fila['categoria_id'];
+
+        //var_dump($_SESSION['id']);
+
+        if ($fila['usuario_id'] != $_SESSION['id']) {
+            header("location:index.php");
+        }
     }
 ?>
     

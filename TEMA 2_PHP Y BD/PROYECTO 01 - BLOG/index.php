@@ -1,3 +1,4 @@
+<?php @ob_start();?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +17,7 @@
 
 <div id="central">
 <div class="encabezado">
-<h2>Últimas entradas</h2>
+<h1>Últimas entradas</h1>
 
 </div>
 <?php
@@ -34,7 +35,6 @@ if (mysqli_num_rows($resultado)>0) {
           // sustraigo parte de la descripcion para ver una vista previa de la entrada
           $descripcion = substr($fila['descripcion'],0,600);
 ?>
-
 <section>
     <img src="imagenes/entrada.png">
     <div class="cabecera_entrada">
@@ -44,10 +44,12 @@ if (mysqli_num_rows($resultado)>0) {
     // si la sesion id está seteada es porque el usuario está logueado, nos queda por ver
     // si el usuairo es el mismo que el autor de la entrada, si lo es aparecen los iconos
     // de edicion
+    //var_dump($_SESSION['id']);
+
     if  (isset($_SESSION['id']) && $_SESSION['id']==$fila['usuario_id']) {?>
-    <a href="borrar_entrada.php?id_entrada=<?php ECHO $id ?>">
+    <a href="borrar_entrada.php?id_entrada=<?= $id ?>">
     <i class="fas fa-minus-square"></i></a>
-    <a href="editar_entrada.php?id_entrada=<?php ECHO $id ?>">
+    <a href="editar_entrada.php?id_entrada=<?= $id ?>">
     <i class="fas fa-pen-square"></i></a>
     <?php }?>
     </div>
@@ -62,9 +64,9 @@ if (mysqli_num_rows($resultado)>0) {
 }?>
 </div>
 <?php 
-
+// pongo los formularios
 if (!(isset($_SESSION['nombre']))) {
-    require_once 'require/formularios_lateral.php';
+    require_once 'require/formularios_login.php';
 }
 // si el id de SESSION está seteado es porque hay un usuario logueado, asi que
 // muestro el panel lateral con las opciones de creación

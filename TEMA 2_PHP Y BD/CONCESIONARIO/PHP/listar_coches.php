@@ -3,7 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <link href="css/estilo.css" type="text/css" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"></head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"></head>
 
 <body>
 
@@ -46,8 +46,8 @@ while ($fila= mysqli_fetch_assoc($resultado) ){?>
 <td><?= $fila['precio']?></td>
 <td><?= $fila['stock']?></td>
 
-<td><a href="modificar_coche.php?id=<?php echo $fila['id']?>"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
-<td><a href="borrar_coche.php?id=<?php echo $fila['id']?>"><i class="fa fa-minus-square" aria-hidden="true"></i></i>
+<td><a href="modificar_coche.php?id=<?php echo $fila['id']?>"><i class="fas fa-edit"></i></a></td>
+<td><a href="borrar_coche.php?id=<?php echo $fila['id']?>"><i class="fa fa-minus-square" aria-hidden="true"></i></a></td>
 
 </a></td>
 </tr>

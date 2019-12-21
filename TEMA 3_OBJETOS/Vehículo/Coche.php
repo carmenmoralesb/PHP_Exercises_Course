@@ -17,7 +17,7 @@ class Coche extends Vehiculo {
     }
 
     public function anda($k) {
-        echo "Voy a recorrer " . $k . " km. <br>Ti-ti-ri-ti-ti-ti-ri<br>";
+        echo "Voy a recorrer " . $k . " km.";
         parent::incrementaKm($k);
         echo "Ya he recorrido " . $this->getKmRecorridos() . " kilómetros";
       }

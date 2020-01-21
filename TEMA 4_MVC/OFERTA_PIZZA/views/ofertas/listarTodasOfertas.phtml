@@ -1,0 +1,11 @@
+<?php
+
+while ($oferta = $todasOfertas->fetchObject()) {
+    //var_dump($oferta);
+    //var_dump($oferta->imagen);
+    echo  "<h1>$oferta->titulo</h1><img width=200px height=200px src=$oferta->imagen>.<br>".$oferta->descripcion.".
+    <a href='index.php?c=Ofertas&a=NuevaOferta&id=$oferta->id'>Modificar</a>
+    <a href='index.php?c=Ofertas&a=BorrarOferta&id=$oferta->id'>Borrar</a><br>";
+
+}
+?>

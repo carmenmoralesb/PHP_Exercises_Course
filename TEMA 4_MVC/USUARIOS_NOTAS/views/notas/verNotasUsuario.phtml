@@ -1,0 +1,7 @@
+<?php
+
+while ($nota = $todasNotas->fetchObject()) {
+    echo  $nota->nombre."-".$nota->titulo."-".$nota->descripcion."<br>";
+}
+
+?>

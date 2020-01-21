@@ -1,0 +1,7 @@
+<?php
+
+while ($user = $todosUsuarios->fetchObject()) {
+    echo  "<a href='index.php?c=Notas&a=verNotasUsuario&u=$user->id'</a>".$user->nombre."-".$user->email."-".$user->fecha." </a>  <a href='index.php?c=Usuarios&a=BorrarUsuario&u=$user->id'>Borrar</a><br>";
+}
+
+?>

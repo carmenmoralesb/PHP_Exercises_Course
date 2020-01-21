@@ -1,0 +1,8 @@
+<?php
+
+while ($nota = $todasNotas->fetchObject()) {
+    //var_dump($nota);
+    echo  $nota->usuario_id."-".$nota->titulo."-".$nota->descripcion."-".$nota->fecha."</br>";
+}
+
+?>

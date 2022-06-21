@@ -1,29 +1,21 @@
-# DESARROLLO WEB ENTORNO SERVIDOR
+## DESARROLLO WEB ENTORNO SERVIDOR 👋🏻 2019-2020
 
-## Curso 2019/2020
 
-Ejercicios de la asignatura Desarrollo entorno servidor para el CFGS Desarrollo de aplicaciones Web.
+#### 🔹 UD01 - Empezando con PHP
+* Variables y constantes
+* Formularios
+* Include
+* Arrays
 
-## INTRODUCCIÓN
+#### 🔹 UD02 -  PHP y MYSQL
+* Conexión con base de datos
+* ORM y sentencias
 
-<ol>
-  <li>UD01 - Empezando con PHP
-  <ol>
-  <li>Variables y constantes</li>
-  <li>Formularios</li>
-  <li>Include</li>
-  <li>Arrays</li>
-  </ol>
-  </li>
+#### 🔹 UD03 - Programación orientada a objetos en PHP
+* Objetos,clases,propiedades y métodos
+* Herencia
 
-  <li>UD02 -  PHP y MYSQL</li>
+#### 🔹 UD04 - Modelo Vista Controlador (MVC)
 
-  <li>UD03 - Programación orientada a objetos en PHP
-  <ol>
-  <li>Objetos,clases,propiedades y métodos</li>
-  <li>Herencia</li>
-  </ol>
-  </li>
-  
-  <li>UD04 - Modelo Vista Controlador (MVC)</li>
-</ol>
+* El patrón MVC
+* Proyecto de ejemplo
